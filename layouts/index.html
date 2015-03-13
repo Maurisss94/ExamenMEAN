@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>API AngularJS</title>
+</head>
+
+<body ng-app="app-botiga">
+    <div class="container" ng-controller="BotigaController">
+        <div class="row">
+            <div class="jumbotron">
+                <h1 class="text-center">Exemple d'API REST i AngularJS</h1>
+            </div>
+            <div id="llistarProductes" class="col-md-6">
+                <fieldset>
+                    <legend>Llista de productes</legend>
+                </fieldset>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="botiga in botigues">
+                        <strong>{{botiga.codi}}</strong>
+                        <p>{{botiga.nom}}</p>
+                        <p>{{botiga.seccio}}</p>
+                        <p>{{botiga.preu}}</p>
+                        <button ng-click="editar(botiga)" class="btn btn-primary" >Edita</button>
+                        <button ng-click="esborrar(botiga)" class="btn btn-primary">Esborrar</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="crearProductes" class="col-md-6">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <legend>Nou producte</legend>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-md-2 control-label">Codi</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" ng-model="codiProducteNou" placeholder="Codi">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-md-2 control-label">Nom</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" ng-model="nomProducteNou" placeholder="Nom">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-md-2 control-label">Seccio</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" ng-model="seccioProducteNou" placeholder="Seccio">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-md-2 control-label">Preu</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" ng-model="preuProducteNou" placeholder="Preu">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <button type="reset" class="btn btn-default">Cancel·la</button>
+                                <button ng-click="afegirProducte()" class="btn btn-primary">Envia</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Edita producte</legend>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-md-2 control-label">Codi</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" ng-model="codiProducteEdit" placeholder="Codi">
+                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-md-2 control-label">Nom</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" ng-model="nomProducteEdit" placeholder="Nom">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-md-2 control-label">Seccio</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" ng-model="seccioProducteEdit" placeholder="Seccio">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-md-2 control-label">Preu</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" ng-model="preuProducteEdit" placeholder="Preu">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <button type="reset" class="btn btn-default">Cancel·la</button>
+                                <button type="submit" ng-click="actualitzar()" class="btn btn-primary">Envia</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular-resource.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
